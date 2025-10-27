@@ -12,6 +12,8 @@ RUN apt-get update \
        build-essential \
        cmake \
        git \
+       wget \
+       unzip \
     && rm -rf /var/lib/apt/lists/*
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
