@@ -34,9 +34,9 @@ RUN pip install --no-cache-dir --prefer-binary \
 
 
 # 预下载 InsightFace buffalo_l 模型
-RUN mkdir -p /app/models/models \
+RUN mkdir -p /app/models/buffalo_l \
     && wget -q https://github.com/deepinsight/insightface/releases/download/v0.7/buffalo_l.zip -O /tmp/buffalo_l.zip \
-    && unzip -q /tmp/buffalo_l.zip -d /app/models/models/ \
+    && unzip -q /tmp/buffalo_l.zip -d /app/models/buffalo_l/ \
     && rm /tmp/buffalo_l.zip
 
 # Copy source code
