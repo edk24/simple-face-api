@@ -1,3 +1,4 @@
 __pycache__
 face_recognition_env
 insightface_db.json
+.DS_Store
