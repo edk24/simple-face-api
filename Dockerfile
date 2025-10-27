@@ -1,7 +1,7 @@
 FROM python:3.11-slim
 
 # 替换 apt 源为阿里云镜像（Debian）
-COPY sources.list /etc/apt/sources.list
+# COPY sources.list /etc/apt/sources.list
 
 # Install OS deps needed by onnxruntime/opencv and build tools for fallback
 RUN apt-get update \
