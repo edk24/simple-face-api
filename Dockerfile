@@ -23,7 +23,6 @@ WORKDIR /app
 # Install Python dependencies (prefer binary wheels; use tuna mirror with fallback)
 COPY requirements.txt ./
 RUN pip install --no-cache-dir --prefer-binary \
-    -i https://pypi.tuna.tsinghua.edu.cn/simple \
     --extra-index-url https://pypi.org/simple \
     -r requirements.txt
 
