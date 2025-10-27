@@ -37,4 +37,3 @@ jobs:
           push: true
           tags: |
             edk24/simple-face-api:${{ steps.get_tag.outputs.TAG }}
-            edk24/simple-face-api:${{ steps.get_tag.outputs.VERSION }}
