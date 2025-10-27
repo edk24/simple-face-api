@@ -20,11 +20,22 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 WORKDIR /app
 
+
+# 设置 InsightFace 模型缓存目录
+ENV INSIGHTFACE_HOME=/app/models
+
 # Install Python dependencies (prefer binary wheels; use tuna mirror with fallback)
 COPY requirements.txt ./
 RUN pip install --no-cache-dir --prefer-binary \
     --extra-index-url https://pypi.org/simple \
     -r requirements.txt
+
+
+# 预下载 InsightFace buffalo_l 模型
+RUN mkdir -p /app/models/models \
+    && wget -q https://github.com/deepinsight/insightface/releases/download/v0.7/buffalo_l.zip -O /tmp/buffalo_l.zip \
+    && unzip -q /tmp/buffalo_l.zip -d /app/models/models/ \
+    && rm /tmp/buffalo_l.zip
 
 # Copy source code
 COPY api.py ./

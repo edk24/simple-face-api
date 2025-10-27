@@ -26,7 +26,7 @@ db = FaceDatabase(db_path=os.path.abspath(INSIGHT_DB_PATH))
 if FaceAnalysis is None:
     raise RuntimeError("insightface 未安装或无法导入，请先安装 insightface 与 onnxruntime")
 
-face_analyzer = FaceAnalysis(name="buffalo_l", providers=["CPUExecutionProvider"])  # CPU 推理，跨平台可用
+face_analyzer = FaceAnalysis(name="buffalo_l", root='/app/models', providers=["CPUExecutionProvider"])  # CPU 推理，跨平台可用
 face_analyzer.prepare(ctx_id=0, det_size=(640, 640))
 
 # 统一响应封装
