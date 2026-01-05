@@ -79,6 +79,11 @@ def _url_to_bgr_ndarray(image_url: str) -> np.ndarray:
         raise HTTPException(status_code=400, detail="无法从URL加载图片")
 
 
+@app.get("/health")
+def health_check() -> Dict[str, Any]:
+    return {"status": "UP", "time": time.time()}
+
+
 @app.get("/people")
 def list_people() -> Dict[str, Any]:
     return resp_ok(db.list_people())
